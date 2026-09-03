@@ -6,15 +6,7 @@ import federation from '@originjs/vite-plugin-federation';
 export default defineConfig({
   plugins: [
     react(),
-    federation({
-      name: 'projectY',
-      filename: 'remoteEntry.js', // The manifest file Project X will look for
-      exposes: {
-        // Expose your Transaction page component
-        './TransactionPage': './src/SharedDashboard.jsx', 
-      },
-      shared: ['react', 'react-dom'], // Share core dependencies
-    }),
+    
   ],
   server: {
     port: 3002, // Fixed port for local development
