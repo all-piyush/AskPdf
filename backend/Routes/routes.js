@@ -1,0 +1,22 @@
+const express=require('express');
+const router=express.Router();
+const {login,signup, adminlogin}=require('../Controllers/userlogin');
+const {auth,checkauth, isadmin}=require('../Middleware/auth');
+const{adddocument}=require('../Controllers/document');
+const { askQuestion } = require('../Controllers/askquestion');
+const{getchats, getmessages, getChatStatus}=require('../Controllers/chats');
+const{getimp}=require('../Controllers/imp');
+const { logout } = require('../Controllers/logout');
+router.post('/login',login);
+router.post('/signup',signup);
+router.post('/add-document/:chatId',auth,adddocument);
+router.post('/ask-question/:chatId',auth,askQuestion);
+router.post('/logout',logout);
+router.post('/chat',auth,adddocument,askQuestion);
+router.get('/getchats',auth,getchats);
+router.get("/chat-status/:chatId", auth, getChatStatus);
+router.get('/messages/:chatId',auth,getmessages);
+router.get('/check-auth',auth,checkauth);
+
+router.get('/imp',getimp);
+module.exports=router;
