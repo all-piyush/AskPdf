@@ -25,7 +25,7 @@ exports.getchats = async (req, res) => {
     });
   }
 };
-const Message = require("../Models/message");
+const Message = require("../Models/Message");
 
 exports.getmessages = async (req, res) => {
   try {
